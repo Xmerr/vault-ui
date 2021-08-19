@@ -4,9 +4,11 @@
         "jsx": "react",
         "paths": {
             "@": ["./"],
+            "@api": ["api"],
             "@assets": ["assets"],
             "@elements": ["elements"],
-            "@global": ["global"]
+            "@global": ["global"],
+            "@helpers": ["helpers"]
         }
     }
 }

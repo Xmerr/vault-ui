@@ -1,5 +1,19 @@
+@import '@global/_vars';
+
 .login {
     width: 100vw;
     max-width: 400px;
     padding: 5rem;
+
+    a {
+        color: $primary;
+    }
+
+    svg {
+        vertical-align: bottom;
+    }
+
+    .submit {
+        margin: 2rem 0;
+    }
 }
