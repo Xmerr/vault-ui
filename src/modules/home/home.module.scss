@@ -1,0 +1,90 @@
+@import '@global/_vars';
+
+.home {
+    background-color: $primary;
+}
+
+.banner {
+    background-color: $offwhite;
+    max-width: $max-width;
+    margin: auto;
+    padding: 5rem 0;
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+        flex: 0 1 10%;
+    }
+
+    .content {
+        flex: 1 0 20%;
+
+        h2 {
+            margin-bottom: 2rem;
+            text-align: center;
+
+            .secondary {
+                color: $secondary;
+            }
+        }
+    }
+
+    .icons {
+        display: flex;
+        justify-content: space-between;
+
+        & > * {
+            text-align: center;
+
+            img {
+                display: block;
+                height: 125px;
+            }
+        }
+    }
+}
+
+.briefStatement {
+    padding: 2rem 0;
+    border: 1px solid $offwhite;
+    margin: 5rem auto;
+    text-align: center;
+    color: $offwhite;
+    max-width: $max-width;
+}
+
+.featured {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    max-width: $max-width;
+    
+    & > div {
+        background-color: $secondary;
+        color: $offwhite;
+        flex: 1 0 0;
+        margin: 0 1rem;
+        padding: 4rem;
+        text-align: center;
+
+        h6, h5 {
+            color: $offwhite;
+            margin: 2.5rem 0;
+        }
+    }
+}
+
+.SO {
+    max-width: $max-width;
+    margin: auto;
+    padding: 5rem;
+    text-align: center;
+
+    svg {
+        font-size: 10rem;
+    }
+
+    h1, h2, h3, h4, h5 {
+        color: $offwhite;
+    }
+}

@@ -1,0 +1,15 @@
+$primary: #d4af37;
+$secondary: #B87333;
+$offwhite: #fff7f0;
+
+$max-width: 1152px;
+
+.rwar {
+    background-color: $offwhite;
+}
+
+:export {
+    primary: $primary;
+    secondary: $secondary;
+    offwhite: $offwhite;
+}

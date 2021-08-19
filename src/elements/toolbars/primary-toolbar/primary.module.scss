@@ -1,0 +1,38 @@
+@import '@global/_vars';
+
+.toolbar {
+    max-width: $max-width;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem auto;
+
+    z-index: 99999;
+
+    svg {
+        height: 6rem;
+        width: auto;
+    }
+
+    .logoText {
+        display: inline-block;
+        & > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+
+        & > * {
+            margin: 1rem;
+        }
+    }
+}

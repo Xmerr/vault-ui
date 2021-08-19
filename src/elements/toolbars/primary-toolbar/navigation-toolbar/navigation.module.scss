@@ -1,0 +1,22 @@
+@import '@global/_vars';
+
+.toolbar {
+    border-top: 1px solid #ddd;
+
+    & > * {
+        max-width: $max-width;
+        justify-content: space-between;
+        margin: auto;
+        min-height: 6rem;
+        align-items: center;
+
+        & > * {
+            padding: 2rem;
+            display: inline-block;
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+}
