@@ -1,1 +1,1 @@
-export { default as PrimaryToolbar } from './primary-toolbar/PrimaryToolbar';
+export * from './primary-toolbar/PrimaryToolbar';

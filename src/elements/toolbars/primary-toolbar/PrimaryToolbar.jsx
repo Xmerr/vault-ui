@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
@@ -11,50 +11,39 @@ import styles from './primary.module.scss';
 /**
  * Toolbar when not logged in
  */
-class Primary extends React.PureComponent {
-    static propTypes = {
+export const PrimaryToolbar = props => {
+    PrimaryToolbar.propTypes = {
         navigation: PropTypes.bool.isRequired,
     };
 
-    static defaultProps = {
+    PrimaryToolbar.defaultProps = {
         navigation: false,
     };
 
-    state = {
-        loginOpen: false,
-    };
+    const [loginOpen, setLoginOpen] = useState(false);
 
-    openSidebar = (open = false) => this.setState({ loginOpen: open });
+    const openSidebar = (open = false) => setLoginOpen(open);
 
-    render() {
-        const { navigation } = this.props;
-        const { loginOpen } = this.state;
+    const { navigation } = props;
 
-        return (
-            <>
-                <div className={styles.toolbar}>
-                    <Link to='/' className={styles.logoText}>
-                        <img src={logo} />
-                        <Typography variant='h1'>The Dragon&#39;s Vault</Typography>
-                    </Link>
-                    <div className={styles.links}>
-                        <Link to='/about'>About Us</Link>
-                        <Link to='/contact'>Contact Us</Link>
-                        <Link to='/help'>Help</Link>
-                        <Button
-                            color='primary'
-                            onClick={() => this.openSidebar(true)}
-                            variant='contained'
-                        >
-                            Log in
-                        </Button>
-                    </div>
+    return (
+        <>
+            <div className={styles.toolbar}>
+                <Link to='/' className={styles.logoText}>
+                    <img src={logo} />
+                    <Typography variant='h1'>The Dragon&#39;s Vault</Typography>
+                </Link>
+                <div className={styles.links}>
+                    <Link to='/about'>About Us</Link>
+                    <Link to='/contact'>Contact Us</Link>
+                    <Link to='/help'>Help</Link>
+                    <Button color='primary' onClick={() => openSidebar(true)} variant='contained'>
+                        Log in
+                    </Button>
                 </div>
-                <Login open={loginOpen} onClose={() => this.openSidebar(false)} />
-                {navigation && <NavigationToolbar />}
-            </>
-        );
-    }
-}
-
-export default Primary;
+            </div>
+            <Login open={loginOpen} onClose={() => openSidebar(false)} />
+            {navigation && <NavigationToolbar />}
+        </>
+    );
+};

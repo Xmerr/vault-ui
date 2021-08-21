@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { capitalizeFirstLetter } from '@helpers';
-import { login as loginApi } from '@api/account';
+import * as accountApi from '@api/account';
 import styles from './login.module.scss';
 
 const validationSchema = yup.object({
@@ -23,11 +23,7 @@ const validationSchema = yup.object({
         .required('Password is required'),
 });
 
-const loginSubmit = values => {
-    alert(JSON.stringify(values));
-    // eslint-disable-next-line no-console
-    loginApi(values).then(console.log).catch(console.log);
-};
+const loginSubmit = values => accountApi.login(values);
 
 export const Login = props => {
     Login.defaultProps = {
@@ -78,6 +74,22 @@ export const Login = props => {
                         type='submit'
                     >
                         Log in
+                    </Button>
+                    <Button
+                        className={styles.submit}
+                        color='primary'
+                        variant='contained'
+                        onClick={accountApi.statusCheck}
+                    >
+                        Status
+                    </Button>
+                    <Button
+                        className={styles.submit}
+                        color='primary'
+                        variant='contained'
+                        onClick={accountApi.logout}
+                    >
+                        Log out
                     </Button>
                 </form>
                 <Typography paragraph>

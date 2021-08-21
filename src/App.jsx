@@ -1,12 +1,10 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
+
 import Home from './modules/home/pages/Home';
 import Footer from '@elements/layouts/footer';
 import { defaultTheme } from './global/themes';
-
-// eslint-disable-next-line no-console
-console.log({ defaultTheme });
 
 const App = () => (
     <ThemeProvider theme={defaultTheme}>
