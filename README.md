@@ -12,6 +12,7 @@ This project requires a `.env` file with the following properties:
 
 ```
 PORT=<port number to run on>
+REACT_APP_API_URL=<URL to the api endpoints>
 ```
 
 ---

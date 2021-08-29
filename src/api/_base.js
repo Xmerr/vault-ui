@@ -4,7 +4,7 @@ export const api = (method, url, options = {}) => {
     const { data, params } = options;
 
     const response = axios({
-        baseURL: 'http://api.bank.io',
+        baseURL: process.env.REACT_APP_API_URL,
         crossDomain: true,
         data,
         headers: {
