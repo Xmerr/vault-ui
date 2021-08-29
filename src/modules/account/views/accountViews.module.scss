@@ -1,0 +1,73 @@
+@import '@global/_vars';
+@import '@global/_mixins';
+
+.accountChart {
+    @include background-gradient;
+
+    .inner {
+        display: flex;
+        height: 30vh;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: $max-width;
+        min-height: 300px;
+        align-items: center;
+
+        & > div {
+            flex: 1 1 1px;
+
+            &:nth-child(2) {
+                max-width: 40%;
+                rect {
+                    fill: transparent;
+                }
+
+                path {
+                    stroke: transparent;
+                }
+            }
+
+            &.legend > div {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+
+                * {
+                    display: inline-block;
+                }
+                @each $name, $color in $additionalColors {
+                    .circle-#{$name} {
+                        background-color: $color;
+                        border-radius: 18px;
+                        height: 18px;
+                        margin-right: 1rem;
+                        margin-bottom: -3px;
+                        width: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.summaries {
+    max-width: $max-width;
+    margin: 5rem auto 0;
+
+    hr {
+        margin: 10rem 0;
+    }
+
+    .account {
+        display: flex;
+        justify-content: space-between;
+
+        & > * {
+            flex: 0 0 20%;
+
+            &:not(:first-child) {
+                text-align: right;
+            }
+        }
+    }
+}

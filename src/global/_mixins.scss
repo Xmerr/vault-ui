@@ -1,0 +1,6 @@
+@import '@global/_vars';
+
+@mixin background-gradient($color1: $primary, $color2: $secondary, $direction: 180deg) {
+    background: $color1;
+    background: linear-gradient($direction, $color1 0%, $color2 100%);
+}

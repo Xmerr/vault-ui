@@ -5,10 +5,12 @@
         "paths": {
             "@": ["./"],
             "@api": ["api"],
+            "@app": ["app"],
             "@assets": ["assets"],
             "@elements": ["elements"],
             "@global": ["global"],
-            "@helpers": ["helpers"]
+            "@helpers": ["helpers"],
+            "@modules": ["modules"]
         }
     }
 }

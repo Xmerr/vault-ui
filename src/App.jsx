@@ -1,17 +1,15 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core/styles';
-
-import Home from './modules/home/pages/Home';
-import Footer from '@elements/layouts/footer';
 import { defaultTheme } from './global/themes';
+import store from '@app/redux/store';
+import { Router } from '@app/Router';
 
 const App = () => (
     <ThemeProvider theme={defaultTheme}>
-        <BrowserRouter>
-            <Home />
-            <Footer />
-        </BrowserRouter>
+        <Provider store={store}>
+            <Router />
+        </Provider>
     </ThemeProvider>
 );
 

@@ -1,17 +1,19 @@
 import React from 'react';
 import { PrimaryToolbar } from '@elements/toolbars';
-import { Banner, BriefStatement, Featured, SO } from '../views';
+import { useSelector } from 'react-redux';
+import { Banner, BriefStatement, Featured, SignOff } from '../views';
 import styles from '../home.module.scss';
 
-const Home = () => {
+export const Home = () => {
+    const isLoggedIn = useSelector(state => state.account.isLoggedIn);
     return (
         <>
-            <PrimaryToolbar navigation />
+            <PrimaryToolbar navigation loggedIn={isLoggedIn} />
             <div className={styles.home}>
                 <Banner />
                 <BriefStatement />
                 <Featured />
-                <SO />
+                <SignOff />
             </div>
         </>
     );

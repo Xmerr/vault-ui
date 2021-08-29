@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Drawer from '@material-ui/core/Drawer';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+
+import { login } from '@app/redux/account.js';
 import { capitalizeFirstLetter } from '@helpers';
 import * as accountApi from '@api/account';
 import styles from './login.module.scss';
@@ -23,8 +26,6 @@ const validationSchema = yup.object({
         .required('Password is required'),
 });
 
-const loginSubmit = values => accountApi.login(values);
-
 export const Login = props => {
     Login.defaultProps = {
         open: false,
@@ -34,6 +35,11 @@ export const Login = props => {
         open: PropTypes.bool.isRequired,
         onClose: PropTypes.func.isRequired,
     };
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const loginSubmit = creds => dispatch(login(creds)).then(() => history.push('/Dashboard'));
 
     const form = useFormik({
         initialValues: {
@@ -70,8 +76,9 @@ export const Login = props => {
                     <Button
                         className={styles.submit}
                         color='primary'
-                        variant='contained'
+                        key='login'
                         type='submit'
+                        variant='contained'
                     >
                         Log in
                     </Button>
@@ -82,14 +89,6 @@ export const Login = props => {
                         onClick={accountApi.statusCheck}
                     >
                         Status
-                    </Button>
-                    <Button
-                        className={styles.submit}
-                        color='primary'
-                        variant='contained'
-                        onClick={accountApi.logout}
-                    >
-                        Log out
                     </Button>
                 </form>
                 <Typography paragraph>

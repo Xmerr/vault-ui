@@ -1,0 +1,45 @@
+@import '@global/_vars';
+
+.toolbar {
+    background-color: $primary;
+
+    .row {
+        align-items: center;
+        color: $offwhite;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: $max-width;
+        padding: 1rem 0;
+
+        & > * > * {
+            margin: 0 1rem;
+        }
+
+        svg {
+            height: 6rem;
+            width: auto;
+        }
+
+        .logoText {
+            display: inline-block;
+            margin-right: 2rem;
+
+            & > * {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            h1 {
+                font-size: 30px;
+                font-weight: bold;
+                color: $offwhite;
+            }
+        }
+
+        button {
+            text-transform: none;
+            color: $offwhite;
+        }
+    }
+}
