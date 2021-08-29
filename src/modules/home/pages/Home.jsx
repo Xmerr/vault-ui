@@ -5,7 +5,7 @@ import { Banner, BriefStatement, Featured, SignOff } from '../views';
 import styles from '../home.module.scss';
 
 export const Home = () => {
-    const isLoggedIn = useSelector(state => state.account.isLoggedIn);
+    const isLoggedIn = useSelector(state => state.user.isLoggedIn);
     return (
         <>
             <PrimaryToolbar navigation loggedIn={isLoggedIn} />

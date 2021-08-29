@@ -54,7 +54,7 @@ const accounts = [
 ];
 
 export const Account = () => {
-    // const isLoggedIn = useSelector(state => state.account.isLoggedIn);
+    // const isLoggedIn = useSelector(state => state.user.isLoggedIn);
     return (
         <>
             <AccountToolbar />

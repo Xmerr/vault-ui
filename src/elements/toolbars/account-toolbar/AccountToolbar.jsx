@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import { logo } from '@assets';
-import { logout as accountLogout } from '@app/redux/account.js';
+import { logout as accountLogout } from '@app/redux/user.js';
 import styles from './account.module.scss';
 
 /**

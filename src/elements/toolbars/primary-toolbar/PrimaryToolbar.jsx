@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { logo } from '@assets';
 import { Login } from '@elements/sidebars';
-import { logout } from '@app/redux/account.js';
+import { logout } from '@app/redux/user.js';
 import NavigationToolbar from './navigation-toolbar/NavigationToolbar';
 import styles from './primary.module.scss';
 

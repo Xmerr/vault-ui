@@ -10,9 +10,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
-import { login } from '@app/redux/account.js';
+import { login } from '@app/redux/user.js';
 import { capitalizeFirstLetter } from '@helpers';
-import * as accountApi from '@api/account';
+import * as userApi from '@api/user';
 import styles from './login.module.scss';
 
 const validationSchema = yup.object({
@@ -86,7 +86,7 @@ export const Login = props => {
                         className={styles.submit}
                         color='primary'
                         variant='contained'
-                        onClick={accountApi.statusCheck}
+                        onClick={userApi.statusCheck}
                     >
                         Status
                     </Button>
@@ -95,7 +95,7 @@ export const Login = props => {
                     Forgot <Link to='/reset-password'>username or password?</Link>
                 </Typography>
                 <Typography paragraph>
-                    <Link to='/new-account'>Create an Account</Link>
+                    <Link to='/new-user'>Create an Account</Link>
                 </Typography>
             </div>
         </Drawer>
