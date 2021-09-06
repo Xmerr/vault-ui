@@ -5,12 +5,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
 
     z-index: 99999;
 
     svg {
-        height: 6rem;
+        height: 3rem;
         width: auto;
     }
 
@@ -32,7 +32,7 @@
         align-items: center;
 
         & > * {
-            margin: 1rem;
+            margin: 0.5rem;
         }
     }
 }

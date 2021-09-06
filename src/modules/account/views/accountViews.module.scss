@@ -30,20 +30,18 @@
             &.legend > div {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 1rem;
+                margin-bottom: 0.5rem;
 
                 * {
                     display: inline-block;
                 }
-                @each $name, $color in $additionalColors {
-                    .circle-#{$name} {
-                        background-color: $color;
-                        border-radius: 18px;
-                        height: 18px;
-                        margin-right: 1rem;
-                        margin-bottom: -3px;
-                        width: 18px;
-                    }
+
+                .circle {
+                    border-radius: 18px;
+                    height: 18px;
+                    margin-right: 0.5rem;
+                    margin-bottom: -3px;
+                    width: 18px;
                 }
             }
         }
@@ -52,7 +50,7 @@
 
 .summaries {
     max-width: $max-width;
-    margin: 5rem auto 0;
+    margin: 2.5rem auto 0;
 
     hr {
         margin: 10rem 0;

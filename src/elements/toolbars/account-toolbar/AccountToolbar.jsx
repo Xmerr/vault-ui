@@ -31,15 +31,15 @@ export const AccountToolbar = () => {
         <div className={styles.toolbar}>
             <div className={styles.row}>
                 <div>
-                    <Link to='/' className={styles.logoText}>
+                    <Link to='/Dashboard' className={styles.logoText}>
                         <img src={logo} />
                         <Typography variant='h1'>The Dragon&#39;s Vault</Typography>
                     </Link>
-                    <Link>Accounts</Link>
+                    <Link to='/Dashboard'>Accounts</Link>
                     <Button variant='outlined'>Open an Account</Button>
                 </div>
                 <div className={styles.links}>
-                    <Link>Profile and Settings</Link>
+                    <Link to='/Dashboard'>Profile and Settings</Link>
                     <Button color='primary' onClick={logout}>
                         Log out
                     </Button>

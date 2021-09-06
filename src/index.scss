@@ -1,12 +1,11 @@
 @import '@global/_vars';
 
 html {
-    font-size: 8px;
+    font-size: 16px;
     background-color: $offwhite;
 }
 
 body {
-    font-size: 16px;
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
@@ -33,9 +32,9 @@ h5 {
 h1 {
     font-size: 40px;
     text-align: center;
-    line-height: 5rem;
+    line-height: 2.5rem;
 }
 
 h4 {
-    font-size: 2.25rem;
+    font-size: 1rem;
 }

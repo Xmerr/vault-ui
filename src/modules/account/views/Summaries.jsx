@@ -21,11 +21,11 @@ export const Summaries = ({ accounts }) => {
             </div>
             {accounts.map(account => (
                 <div key={account.id} className={styles.account}>
-                    <Typography>{account.name}</Typography>
+                    <Typography>{account.nickname}</Typography>
                     <Typography>{formatCurrency(account.value)}</Typography>
                     <Typography>{formatCurrency(account.current)}</Typography>
                     <Typography>{formatCurrency(account.ytdInterest)}</Typography>
-                    <Typography>{Number(account.interest).toFixed(2)}%</Typography>
+                    <Typography>{Number(account.interestRate || 0).toFixed(2)}%</Typography>
                 </div>
             ))}
 

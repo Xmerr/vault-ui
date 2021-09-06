@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { defaultTheme } from './global/themes';
+import { defaultTheme } from '@global/themes';
 import store from '@app/redux/store';
 import { Router } from '@app/Router';
 

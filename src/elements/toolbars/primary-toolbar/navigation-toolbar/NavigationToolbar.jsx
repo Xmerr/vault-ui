@@ -9,11 +9,11 @@ const Navigation = () => {
     return (
         <div className={styles.toolbar}>
             <div>
-                <Link>Checking & Savings</Link>
-                <Link>Investing & Retirement</Link>
-                <Link>Mortgage</Link>
-                <Link>Auto</Link>
-                <Link>Personal Loans</Link>
+                <Link to='/'>Checking & Savings</Link>
+                <Link to='/'>Investing & Retirement</Link>
+                <Link to='/'>Mortgage</Link>
+                <Link to='/'>Auto</Link>
+                <Link to='/'>Personal Loans</Link>
             </div>
         </div>
     );

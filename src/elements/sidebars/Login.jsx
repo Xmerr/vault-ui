@@ -12,7 +12,6 @@ import Typography from '@material-ui/core/Typography';
 
 import { login } from '@app/redux/user.js';
 import { capitalizeFirstLetter } from '@helpers';
-import * as userApi from '@api/user';
 import styles from './login.module.scss';
 
 const validationSchema = yup.object({
@@ -81,14 +80,6 @@ export const Login = props => {
                         variant='contained'
                     >
                         Log in
-                    </Button>
-                    <Button
-                        className={styles.submit}
-                        color='primary'
-                        variant='contained'
-                        onClick={userApi.statusCheck}
-                    >
-                        Status
                     </Button>
                 </form>
                 <Typography paragraph>

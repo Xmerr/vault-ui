@@ -1,9 +1,1 @@
 @import '@global/_vars';
-
-:export {
-    color0: map-get($additionalColors, 0);
-    color1: map-get($additionalColors, 1);
-    color2: map-get($additionalColors, 2);
-    color3: map-get($additionalColors, 3);
-    color4: map-get($additionalColors, 4);
-}

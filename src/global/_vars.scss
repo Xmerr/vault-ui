@@ -2,23 +2,10 @@ $primary: #d4af37;
 $secondary: #b87333;
 $offwhite: #fff7f0;
 
-$additionalColors: (
-    0: #6f629a,
-    1: #09254e,
-    2: #30db6f,
-    3: #5e8c6f,
-    4: #304f09,
-);
-
 $max-width: 1152px;
 
 :export {
     primary: $primary;
     secondary: $secondary;
     offwhite: $offwhite;
-    color0: map-get($additionalColors, 0);
-    color1: map-get($additionalColors, 1);
-    color2: map-get($additionalColors, 2);
-    color3: map-get($additionalColors, 3);
-    color4: map-get($additionalColors, 4);
 }

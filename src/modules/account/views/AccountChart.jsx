@@ -10,7 +10,7 @@ export const AccountChart = ({ accounts }) => {
         accounts: accountPropType,
     };
 
-    const formattedAccounts = accounts.map(account => [account.name, account.value]);
+    const formattedAccounts = accounts.map(account => [account.name, account.current]);
     const total = accounts.reduce((sum, account) => sum + account.value, 0);
 
     return (
@@ -27,13 +27,13 @@ export const AccountChart = ({ accounts }) => {
                     leader={<div>Loading</div>}
                     data={[['', ''], ...formattedAccounts]}
                     options={{
-                        slices: {
-                            0: { color: styles.color0 },
-                            1: { color: styles.color1 },
-                            2: { color: styles.color2 },
-                            3: { color: styles.color3 },
-                            4: { color: styles.color4 },
-                        },
+                        slices: accounts.reduce(
+                            (colors, { color }, i) => ({
+                                ...colors,
+                                [i]: { color },
+                            }),
+                            {}
+                        ),
                         legend: 'none',
                         pieSliceText: 'none',
                         pieStartAngle: 50,
@@ -51,10 +51,13 @@ export const AccountChart = ({ accounts }) => {
                     {accounts.map(account => (
                         <div key={account.id}>
                             <Typography>
-                                <div className={styles[`circle-${account.color}`]} />
-                                {account.name}
+                                <span
+                                    className={styles.circle}
+                                    style={{ backgroundColor: account.color }}
+                                />
+                                {account.nickname}
                             </Typography>
-                            <Typography>{formatCurrency(account.value)}</Typography>
+                            <Typography>{formatCurrency(account.current)}</Typography>
                         </div>
                     ))}
                 </div>
