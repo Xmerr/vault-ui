@@ -1,7 +1,7 @@
 import React from 'react';
-import { formatCurrency } from '@helpers';
 import Typography from '@material-ui/core/Typography';
 import { accountPropType } from '../propTypes';
+import { AccountList } from './AccountList';
 import styles from './accountViews.module.scss';
 
 export const Summaries = ({ accounts }) => {
@@ -9,26 +9,44 @@ export const Summaries = ({ accounts }) => {
         accounts: accountPropType,
     };
 
+    const accountTypes = accounts.reduce((types, account) => {
+        const type = types.find(({ typeName }) => account.typeName === typeName);
+        if (type) {
+            type.accounts.push(account);
+            return types;
+        }
+
+        return [
+            ...types,
+            {
+                accounts: [account],
+                investment: account.investment,
+                typeName: account.typeName,
+            },
+        ];
+    }, []);
+
+    const investmentAccounts = accountTypes.filter(({ investment }) => investment);
+    const bankAccounts = accountTypes.filter(({ investment }) => !investment);
+
     return (
         <div className={styles.summaries}>
-            <Typography variant='h5'>Bank Accounts</Typography>
-            <div className={styles.account}>
-                <Typography>Account Name</Typography>
-                <Typography>Account Value</Typography>
-                <Typography>Current</Typography>
-                <Typography>Interest YTD</Typography>
-                <Typography>Annual Percentage Yield</Typography>
-            </div>
-            {accounts.map(account => (
-                <div key={account.id} className={styles.account}>
-                    <Typography>{account.nickname}</Typography>
-                    <Typography>{formatCurrency(account.value)}</Typography>
-                    <Typography>{formatCurrency(account.current)}</Typography>
-                    <Typography>{formatCurrency(account.ytdInterest)}</Typography>
-                    <Typography>{Number(account.interestRate || 0).toFixed(2)}%</Typography>
-                </div>
-            ))}
-
+            {investmentAccounts.length > 0 && (
+                <>
+                    <Typography variant='h5'>Investments</Typography>
+                    {investmentAccounts.map(type => (
+                        <AccountList key={type.typeName} investment accounts={type.accounts} />
+                    ))}
+                </>
+            )}
+            {bankAccounts.length > 0 && (
+                <>
+                    <Typography variant='h5'>Bank Accounts</Typography>
+                    {bankAccounts.map(type => (
+                        <AccountList key={type.typeName} accounts={type.accounts} />
+                    ))}
+                </>
+            )}
             <hr />
         </div>
     );

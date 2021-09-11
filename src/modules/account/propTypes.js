@@ -9,6 +9,7 @@ export const accountPropType = PropTypes.arrayOf(
         interestRate: PropTypes.number,
         investment: PropTypes.bool.isRequired,
         nickname: PropTypes.string.isRequired,
+        typeName: PropTypes.string.isRequired,
         ytdInterest: PropTypes.number.isRequired,
     })
 ).isRequired;
