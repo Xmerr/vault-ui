@@ -3,18 +3,22 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Account from '@modules/account';
 import Footer from '@elements/layouts/footer';
 import Home from '@modules/home';
+import { PrivateRoute, PublicRoute } from './routes';
+import * as paths from '@global/paths';
 
-export const Router = () => (
-    <BrowserRouter>
-        <Switch>
-            <Route path='/Dashboard'>
-                <Account />
-            </Route>
+export const Router = () => {
+    return (
+        <BrowserRouter>
+            <Switch>
+                <PrivateRoute path={paths.dashboard()}>
+                    <Account />
+                </PrivateRoute>
 
-            <Route path='/'>
-                <Home />
-            </Route>
-        </Switch>
-        <Footer />
-    </BrowserRouter>
-);
+                <PublicRoute path={paths.home()}>
+                    <Home />
+                </PublicRoute>
+            </Switch>
+            <Footer />
+        </BrowserRouter>
+    );
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { formatCurrency } from '@helpers';
+import { formatCurrency, maskAccountNumber } from '@helpers';
 import Typography from '@material-ui/core/Typography';
 import { accountPropType } from '../propTypes';
 import styles from './accountViews.module.scss';
@@ -35,7 +35,11 @@ const fieldLists = {
     bank: [
         {
             titleKey: 'typeName',
-            render: ({ id, nickname }) => <Link to={`/account/${id}`}>{nickname}</Link>,
+            render: ({ id, nickname, accountNumber }) => (
+                <Link to={`/account/${id}`}>
+                    {nickname} {maskAccountNumber(accountNumber)}
+                </Link>
+            ),
             total: 'Total',
         },
         {
@@ -65,7 +69,7 @@ const fieldLists = {
 export const AccountList = ({ accounts, investments }) => {
     AccountList.propTypes = {
         accounts: accountPropType,
-        investments: PropTypes.bool.isRequired,
+        investments: PropTypes.bool,
     };
 
     const fields = investments ? fieldLists.investment : fieldLists.bank;

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 export const accountPropType = PropTypes.arrayOf(
     PropTypes.shape({
+        accountNumber: PropTypes.string.isRequired,
         available: PropTypes.number.isRequired,
         color: PropTypes.string.isRequired,
         current: PropTypes.number.isRequired,

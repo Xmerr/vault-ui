@@ -73,6 +73,11 @@
                 font-weight: bold !important;
             }
 
+            a {
+                font-weight: bold;
+                color: $link;
+            }
+
             & > * {
                 flex: 0 0 20%;
 

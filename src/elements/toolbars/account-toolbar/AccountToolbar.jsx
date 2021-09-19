@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import { dashboard } from '@global/paths';
 import { logo } from '@assets';
 import { logout as accountLogout } from '@app/redux/user.js';
 import styles from './account.module.scss';
@@ -31,15 +32,15 @@ export const AccountToolbar = () => {
         <div className={styles.toolbar}>
             <div className={styles.row}>
                 <div>
-                    <Link to='/Dashboard' className={styles.logoText}>
+                    <Link to={dashboard()} className={styles.logoText}>
                         <img src={logo} />
                         <Typography variant='h1'>The Dragon&#39;s Vault</Typography>
                     </Link>
-                    <Link to='/Dashboard'>Accounts</Link>
+                    <Link to={dashboard()}>Accounts</Link>
                     <Button variant='outlined'>Open an Account</Button>
                 </div>
                 <div className={styles.links}>
-                    <Link to='/Dashboard'>Profile and Settings</Link>
+                    <Link to={dashboard()}>Profile and Settings</Link>
                     <Button color='primary' onClick={logout}>
                         Log out
                     </Button>

@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
+import { dashboard } from '@global/paths';
 import { login } from '@app/redux/user.js';
 import { capitalizeFirstLetter } from '@helpers';
 import styles from './login.module.scss';
@@ -38,7 +39,7 @@ export const Login = props => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const loginSubmit = creds => dispatch(login(creds)).then(() => history.push('/Dashboard'));
+    const loginSubmit = creds => dispatch(login(creds)).then(() => history.push(dashboard()));
 
     const form = useFormik({
         initialValues: {
