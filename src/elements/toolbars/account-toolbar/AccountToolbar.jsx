@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import { dashboard } from '@global/paths';
+import { dashboard, bankTransfers } from '@global/paths';
 import { logo } from '@assets';
 import { logout as accountLogout } from '@app/redux/user.js';
 import styles from './account.module.scss';
@@ -43,6 +43,13 @@ export const AccountToolbar = () => {
                     <Button color='primary' onClick={logout}>
                         Log out
                     </Button>
+                </div>
+            </div>
+            <div className={styles.actions}>
+                <div className={styles.row}>
+                    <Link to={bankTransfers()}>
+                        <Typography>Bank Transfers</Typography>
+                    </Link>
                 </div>
             </div>
         </div>

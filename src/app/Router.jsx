@@ -21,6 +21,10 @@ export const Router = () => {
                     <Dashboard />
                 </PrivateRoute>
 
+                <PrivateRoute path={paths.bankTransfers()}>
+                    <Dashboard />
+                </PrivateRoute>
+
                 <PrivateRoute path={paths.account()} component={Account} />
 
                 <PublicRoute path={paths.home()}>

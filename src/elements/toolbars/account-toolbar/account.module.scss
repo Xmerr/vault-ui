@@ -42,4 +42,13 @@
             color: $offwhite;
         }
     }
+
+    .actions {
+        background-color: $offwhite;
+
+        * {
+            color: $primary !important;
+            font-weight: bold;
+        }
+    }
 }
