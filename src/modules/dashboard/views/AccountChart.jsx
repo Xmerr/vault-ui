@@ -11,7 +11,7 @@ export const AccountChart = ({ accounts }) => {
     };
 
     const formattedAccounts = accounts.map(account => [account.name, account.current]);
-    const total = accounts.reduce((sum, account) => sum + account.value, 0);
+    const total = accounts.reduce((sum, account) => sum + account.available, 0);
 
     return (
         <div className={styles.accountChart}>

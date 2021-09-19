@@ -36,7 +36,6 @@ export const AccountToolbar = () => {
                         <img src={logo} />
                         <Typography variant='h1'>The Dragon&#39;s Vault</Typography>
                     </Link>
-                    <Link to={dashboard()}>Accounts</Link>
                     <Button variant='outlined'>Open an Account</Button>
                 </div>
                 <div className={styles.links}>

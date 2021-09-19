@@ -1,0 +1,41 @@
+@import '@global/_vars';
+
+.table {
+    box-shadow: 3px 3px 10px 0px $shadow;
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+
+        & > * {
+            padding: 0.75rem 2rem;
+            flex: 0 1 100%;
+        }
+
+        .currency {
+            text-align: right;
+        }
+
+        &:not(:first-child) {
+            border-top: 1px solid $secondary;
+        }
+    }
+
+    .header {
+        @extend .row;
+
+        background-color: $secondary;
+
+        * {
+            color: $offwhite !important;
+
+            &:not(:first-of-type) {
+                border-left: 1px solid $offwhite;
+            }
+        }
+
+        .currency {
+            text-align: center;
+        }
+    }
+}

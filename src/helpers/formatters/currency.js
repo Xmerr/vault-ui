@@ -1,13 +1,16 @@
 export const formatCurrency = amount => {
-    const plat = Math.floor(amount / 1000);
+    const isNegative = amount < 0;
+    const absoluteAmount = Math.abs(amount);
+
+    const plat = Math.floor(absoluteAmount / 1000);
 
     if (plat >= 10) {
-        return `${amount / 1000}pp`;
+        return `${absoluteAmount / 1000}pp`;
     }
 
-    const gold = Math.floor((amount % 1000) / 100);
-    const silver = Math.floor((amount % 100) / 10);
-    const copper = amount % 10;
+    const gold = Math.floor((absoluteAmount % 1000) / 100);
+    const silver = Math.floor((absoluteAmount % 100) / 10);
+    const copper = absoluteAmount % 10;
 
     let result = '';
     let shouldShow = false;
@@ -30,6 +33,8 @@ export const formatCurrency = amount => {
     if (shouldShow || copper > 0) {
         result += `${copper}cp `;
     }
+
+    result = isNegative ? `-${result}` : result;
 
     return result.length > 0 ? result : '0cp';
 };
