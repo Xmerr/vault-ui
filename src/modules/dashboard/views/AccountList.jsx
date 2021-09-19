@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { formatCurrency, maskAccountNumber } from '@helpers';
+import { formatCurrency, formatInterestRate, maskAccountNumber } from '@helpers';
 import Typography from '@material-ui/core/Typography';
+import { account } from '@global/paths';
 import { accountPropType } from '../propTypes';
 import styles from './accountViews.module.scss';
 
@@ -29,14 +30,14 @@ const fieldLists = {
         },
         {
             title: 'Actions',
-            render: ({ id }) => <Link to={`/account/${id}`}>Overview</Link>,
+            render: ({ id }) => <Link to={account(id)}>Overview</Link>,
         },
     ],
     bank: [
         {
             titleKey: 'typeName',
             render: ({ id, nickname, accountNumber }) => (
-                <Link to={`/account/${id}`}>
+                <Link to={account(id)}>
                     {nickname} {maskAccountNumber(accountNumber)}
                 </Link>
             ),
@@ -59,7 +60,7 @@ const fieldLists = {
         },
         {
             title: 'Annual Percentage Yield',
-            format: val => `${Number(val || 0).toFixed(2)}%`,
+            format: formatInterestRate,
             key: 'interestRate',
             total: '',
         },

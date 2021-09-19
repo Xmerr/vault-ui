@@ -1,22 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { AccountToolbar } from '@elements/toolbars';
+import PropTypes from 'prop-types';
 import * as accountsApi from '@api/accounts';
-import { AccountChart, Summaries } from '../views';
+import Content from '@elements/layouts/content';
+import { Summary } from '../views';
 
-export const Account = () => {
-    const [accounts, setAccounts] = useState([]);
+export const Account = ({ match }) => {
+    Account.propTypes = {
+        match: PropTypes.shape({
+            params: PropTypes.shape({
+                id: PropTypes.string.isRequired,
+            }).isRequired,
+        }).isRequired,
+    };
+    const accountId = match.params.id;
 
-    useEffect(() => {
-        accountsApi.getAccounts().then(({ data }) => {
-            setAccounts(data);
+    const [account, setAccount] = useState({});
+    const [, setTransactions] = useState([]);
+
+    const fetchData = () => {
+        accountsApi.getAccountDetails(accountId).then(({ data }) => {
+            const { account, transactions } = data;
+            setAccount(account);
+            setTransactions(transactions);
         });
-    }, []);
+    };
+
+    useEffect(fetchData, []);
 
     return (
-        <>
-            <AccountToolbar />
-            <AccountChart accounts={accounts} />
-            <Summaries accounts={accounts} />
-        </>
+        <Content>
+            <Summary account={account} fetchData={fetchData} />
+        </Content>
     );
 };

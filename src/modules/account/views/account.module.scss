@@ -1,0 +1,29 @@
+@import '@global/_vars';
+
+.summary {
+    background-color: white;
+    border-left-style: solid;
+    border-left-width: 8px;
+    box-shadow: 3px 3px 10px 0px $shadow;
+    margin: 1rem 0;
+    padding: 1rem;
+
+    .row {
+        display: flex;
+        align-items: center;
+
+        & > * {
+            flex: 0 0 18%;
+            text-align: right;
+
+            &:first-child {
+                flex-basis: 28%;
+                text-align: left;
+
+                & > * {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
