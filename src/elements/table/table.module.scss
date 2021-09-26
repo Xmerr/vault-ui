@@ -1,7 +1,7 @@
 @import '@global/_vars';
 
 .table {
-    box-shadow: 3px 3px 10px 0px $shadow;
+    box-shadow: $box-shadow;
 
     .row {
         display: flex;

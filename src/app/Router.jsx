@@ -5,6 +5,7 @@ import { AccountToolbar } from '@elements/toolbars';
 
 import Account from '@modules/account';
 import Dashboard from '@modules/dashboard';
+import Transfer from '@modules/transfer';
 import Home from '@modules/home';
 
 import { PrivateRoute, PublicRoute } from './routes';
@@ -22,7 +23,7 @@ export const Router = () => {
                 </PrivateRoute>
 
                 <PrivateRoute path={paths.bankTransfers()}>
-                    <Dashboard />
+                    <Transfer />
                 </PrivateRoute>
 
                 <PrivateRoute path={paths.account()} component={Account} />
