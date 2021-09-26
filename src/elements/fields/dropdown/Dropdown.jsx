@@ -1,26 +1,26 @@
 import * as React from 'react';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import styles from './dropdown.module.scss';
 
-export const Dropdown = ({ label, options }) => {
-    const [age, setAge] = React.useState('');
-
-    const handleChange = event => {
-        setAge(event.target.value);
-    };
+export const Dropdown = ({ label, options, onChange }) => {
+    const [value, setValue] = React.useState('');
 
     return (
-        <FormControl fullWidth>
-            <InputLabel>Age</InputLabel>
-            <Select value={age} label={label} onChange={handleChange}>
-                {options.map(({ title, value }) => (
-                    <MenuItem key={value} value={value}>
-                        {title}
-                    </MenuItem>
-                ))}
-            </Select>
-        </FormControl>
+        <Box>
+            <FormControl fullWidth>
+                <InputLabel className={styles.label}>{label}</InputLabel>
+                <Select value={value} onChange={({ target: { value } }) => setValue(value)}>
+                    {options.map(({ title, value }) => (
+                        <MenuItem key={value} value={value}>
+                            {title}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+        </Box>
     );
 };

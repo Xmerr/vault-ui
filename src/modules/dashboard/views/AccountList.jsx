@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { formatCurrency, formatInterestRate, maskAccountNumber } from '@helpers';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { account } from '@global/paths';
 import { accountPropType } from '../propTypes';
 import styles from './accountViews.module.scss';

@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestIcon from '@material-ui/icons/NotListedLocationOutlined';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import styles from '../home.module.scss';
 
 export const SignOff = () => (

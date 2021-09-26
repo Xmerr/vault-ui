@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Content from '@elements/layouts/content';
 import { Dropdown } from '@elements/fields';
 import * as accountsApi from '@api/accounts';
@@ -18,7 +18,7 @@ export const Transfer = () => {
         <Content>
             <Typography variant='h4'>Transfers</Typography>
             <Dropdown
-                title='FromAccount'
+                label='From Account'
                 options={[
                     {
                         value: 1,

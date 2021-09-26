@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatCurrency } from '@helpers';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import Chart from 'react-google-charts';
 import { accountPropType } from '../propTypes';
 import styles from './accountViews.module.scss';

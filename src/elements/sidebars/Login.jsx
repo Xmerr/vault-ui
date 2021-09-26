@@ -4,11 +4,11 @@ import { Link, useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import Drawer from '@material-ui/core/Drawer';
+import Button from '@mui/material/Button';
+import Drawer from '@mui/material/Drawer';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
 import { dashboard } from '@global/paths';
 import { login } from '@app/redux/user.js';
